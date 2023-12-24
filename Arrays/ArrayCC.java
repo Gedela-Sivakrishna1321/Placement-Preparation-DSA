@@ -27,14 +27,22 @@ public class ArrayCC {
         }
 
     }
+    
+    public static void printPairs(int numbers[]) {
+        for(int i=0; i<numbers.length; i++) { // Time Complexity = O(n^2) , Space Complexity = O(1)
+            int curr = numbers[i];
+            for(int j=i+1; j<numbers.length; j++) {
+                System.out.print("("+curr+","+numbers[j]+") ");
+            }
+            System.out.println();
+        }
+    }
+    
     public static void main(String args[]) {
          Scanner sc = new Scanner(System.in);
          int marks[] = {81, 95, 100, 76, 93, 65};
-        
-        reverse(marks);
-        for(int i=0; i<marks.length; i++) {
-            System.out.print(marks[i] + " ");
-        }
+         printPairs(marks);
+         System.out.println("Total Pairs = " + (marks.length * (marks.length-1))/2);
         
         sc.close();
     }
