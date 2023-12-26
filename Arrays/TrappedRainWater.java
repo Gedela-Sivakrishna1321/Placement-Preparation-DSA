@@ -28,7 +28,7 @@ public class TrappedRainWater {
         return trappedWater;
     }
     public static void main(String[] args) {
-        int numbers[] = {4, 3, 6, 7, 5, 1, 2, 5};
+        int numbers[] = {4, 2, 0, 3, 2, 5};
         System.out.println("Trapped Rain Water = " + trappedRainWater(numbers));
 
         /*
