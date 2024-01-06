@@ -1,0 +1,50 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "java",
+            "name": "DiagonallyPrintMatrix",
+            "request": "launch",
+            "mainClass": "DiagonallyPrintMatrix",
+            "projectName": "2D Arrays_5b2ff8fa"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Classroom",
+            "request": "launch",
+            "mainClass": "Classroom",
+            "projectName": "2D Arrays_5b2ff8fa"
+        },
+        {
+            "type": "java",
+            "name": "DiagonalSum",
+            "request": "launch",
+            "mainClass": "DiagonalSum",
+            "projectName": "2D Arrays_5b2ff8fa"
+        },
+        {
+            "type": "java",
+            "name": "SearchInSortedMatrix",
+            "request": "launch",
+            "mainClass": "SearchInSortedMatrix",
+            "projectName": "2D Arrays_5b2ff8fa"
+        },
+        {
+            "type": "java",
+            "name": "SpiralMatrix",
+            "request": "launch",
+            "mainClass": "SpiralMatrix",
+            "projectName": "2D Arrays_5b2ff8fa"
+        }
+    ]
+}
