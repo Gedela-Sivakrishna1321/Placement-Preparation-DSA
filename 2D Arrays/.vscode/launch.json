@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TransposeOfMatrix",
+            "request": "launch",
+            "mainClass": "TransposeOfMatrix",
+            "projectName": "2D Arrays_5b2ff8fa"
+        },
+        {
+            "type": "java",
+            "name": "RotateImage",
+            "request": "launch",
+            "mainClass": "RotateImage",
+            "projectName": "2D Arrays_5b2ff8fa"
+        },
+        {
+            "type": "java",
             "name": "SetMatrixZero",
             "request": "launch",
             "mainClass": "SetMatrixZero",
