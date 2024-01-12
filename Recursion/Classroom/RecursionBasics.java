@@ -38,10 +38,43 @@ public class RecursionBasics {
     
     }
 
+    // Sum of first N natural Numbers
+    public static int sum(int n) {
+       
+        // Base Case
+        if(n == 1) {
+            return n;
+        }
+
+        int Snm1 = sum(n-1);
+        int Sn = n + Snm1;
+      
+        return Sn;
+    }
+
+    // Nth Fibonaaci Number
+    public static int fib(int n) {
+        // Base Case
+        if(n == 0 || n == 1) {     // Space Complexity - O(n) --> The maximum height of the call stack can go upto n
+            return n;              // Time Complexity - O(2^n) --> Exponential Complexity
+        }                          // Check the notes for the better visualization of Tree 
+
+        int fbnm1 = fib(n-1);
+        int fbnm2 = fib(n-2);
+        int fbn = fbnm1 + fbnm2;
+        return fbn;
+    }
+
     public static void main(String[] args) {
         int n = 10;
         // printDec(n);
         // printInc(n);
-        System.out.println(fact(10));
+        // System.out.println(fact(10));
+        // System.out.println(sum(5));
+        System.out.println(fib(n));
+        System.out.println(fib(n+1));
+        System.out.println(fib(n+2));
+        System.out.println(fib(n+3));
+        System.out.println(fib(n+4));
     }
 }
