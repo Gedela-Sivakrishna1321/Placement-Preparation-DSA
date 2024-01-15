@@ -125,7 +125,7 @@ public class RecursionBasics {
     }
 
     // Optimised x ^ n
-    public static int optimisedPower(int x, int n) { // Time Complexity - O(logn), Space Complexity - O(L)
+    public static int optimisedPower(int x, int n) { // Time Complexity - O(logn), Space Complexity - O(logn)
 
         if(n == 0) {
             return 1;
@@ -140,6 +140,8 @@ public class RecursionBasics {
 
         return halfPowerSq;
     }
+
+    
 
     public static void main(String[] args) {
         int n = 10;
