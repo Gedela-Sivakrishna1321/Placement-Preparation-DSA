@@ -263,17 +263,64 @@ public class LinkedList {
         return true;
     }
 
+    // Time Complexity - O(n)
+    public boolean isCycleExist() { // Floyd's Cycle Algorithm
+
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null) {
+
+            slow = slow.next; // +1
+            fast = fast.next.next; // +2
+
+            if(slow == fast) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void removeCycle() {
+        // Detect loop 
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null) {
+            slow = slow.next; // + 1 step
+            fast = fast.next.next; // + 2 step
+            if(slow == fast)
+                break;
+        }
+
+        // slow = head
+        slow = head;
+        
+        // Prev Node to track previous of fast
+        Node prev = null;
+
+        while(slow != fast) {
+            slow = slow.next; // +1 step
+            prev = fast;
+            fast = fast.next; // +1 step
+        }
+
+        // Point the LastNode.next = null
+        prev.next = null;
+    }
+
 
     public static void main(String[] args) {
       
         LinkedList ll = new LinkedList();
-        ll.addFirst(1); // O(1) time to add element to linkedlist
-        ll.addLast(2);
-        ll.addLast(97);
-        ll.addLast(97);
-        ll.addLast(2); // O(1) time
-        ll.addLast(1);
-        ll.print();
+        // ll.addFirst(1); // O(1) time to add element to linkedlist
+        // ll.addLast(2);
+        // ll.addLast(97);
+        // ll.addLast(97);
+        // ll.addLast(2); // O(1) time
+        // ll.addLast(1);
+        // ll.print();
 
         // System.out.println(ll.recSearch(head,4));
         // System.out.println(ll.recSearch(head,242));
@@ -283,7 +330,26 @@ public class LinkedList {
 
         // System.out.println(ll.removeNthNodeFromEnd(2));
         // ll.print();
-        System.out.println(ll.isPalindrome());
+        // System.out.println(ll.isPalindrome());
+        head = new Node(1);
+        Node node2 = new Node(2);
+        head.next = node2;
+        Node node3 = new Node(3);
+        node2.next = node3;
+        Node node4 = new Node(4);
+        node3.next = node4;
+        Node node5 = new Node(5);
+        node4.next = node5;
+        Node node6 = new Node(6);
+        node5.next = node6;
+        Node node7 = new Node(7);
+        node6.next = node7;
+        node7.next = node2;
+        
+        // ll.print();
+        System.out.println(ll.isCycleExist());
+        ll.removeCycle();
+        ll.print();
         
     }
     
