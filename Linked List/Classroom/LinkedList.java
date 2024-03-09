@@ -310,6 +310,103 @@ public class LinkedList {
         prev.next = null;
     }
 
+    public Node getMidNode(Node head) {
+        // Find the mid Node
+        Node slow = head;
+        Node fast = head.next;
+
+        while(fast != null && fast.next != null) {
+            slow = slow.next; // +1 step
+            fast = fast.next.next; // +2 step
+        }
+        return slow;
+    }
+
+    public Node mergeSort(Node head) { // Time Complexity - O(nlogn)
+        // Base case
+        if(head.next == null || head == null) {
+            return head;
+        }
+
+        Node mid = getMidNode(head);
+
+        Node right = mid.next;
+        mid.next = null;
+
+        Node newLeft = mergeSort(head);
+        Node newRight = mergeSort(right);
+        return merge(newLeft, newRight);
+    }
+
+    public Node merge(Node head1, Node head2) {
+
+        Node mergedLL = new Node(-1);
+        Node temp = mergedLL;
+
+        while(head1 != null && head2 != null) {
+            if(head1.data < head2.data) {
+                temp.next = head1;
+                head1 = head1.next;
+            } 
+            else {
+                temp.next = head2;
+                head2 = head2.next;
+            }
+            temp = temp.next;
+        }
+
+        while(head1 != null) {
+            temp.next = head1;
+            head1 = head1.next;
+            temp = temp.next;
+        }
+
+        while(head2 != null) {
+            temp.next = head2;
+            head2 = head2.next;
+            temp = temp.next;
+        }
+
+        return mergedLL.next;
+    }
+
+    public void zigzag() {
+        // Find the mid
+        Node mid = getMidNode(head);
+        Node right = mid.next;
+        mid.next = null;
+
+        // Reverse the second half
+        Node prev = null; // 3 variables & 4 steps
+        Node curr = right;
+        Node next ;
+
+        while(curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        Node RH = prev;
+        Node LH = head;
+        Node nextL, nextR;
+        
+        // Alternate Merging
+        while(LH != null && RH != null) {
+            // zig-zag steps
+            nextL = LH.next;
+            LH.next = RH;
+            nextR = RH.next;
+            RH.next = nextL;
+
+            // Update
+            LH = nextL;
+            RH = nextR;
+        }
+
+    }
+
 
     public static void main(String[] args) {
       
@@ -331,26 +428,48 @@ public class LinkedList {
         // System.out.println(ll.removeNthNodeFromEnd(2));
         // ll.print();
         // System.out.println(ll.isPalindrome());
-        head = new Node(1);
-        Node node2 = new Node(2);
-        head.next = node2;
-        Node node3 = new Node(3);
-        node2.next = node3;
-        Node node4 = new Node(4);
-        node3.next = node4;
-        Node node5 = new Node(5);
-        node4.next = node5;
-        Node node6 = new Node(6);
-        node5.next = node6;
-        Node node7 = new Node(7);
-        node6.next = node7;
-        node7.next = node2;
+        // head = new Node(1);
+        // Node node2 = new Node(2);
+        // head.next = node2;
+        // Node node3 = new Node(3);
+        // node2.next = node3;
+        // Node node4 = new Node(4);
+        // node3.next = node4;
+        // Node node5 = new Node(5);
+        // node4.next = node5;
+        // Node node6 = new Node(6);
+        // node5.next = node6;
+        // Node node7 = new Node(7);
+        // node6.next = node7;
+        // node7.next = node2;
         
         // ll.print();
-        System.out.println(ll.isCycleExist());
-        ll.removeCycle();
-        ll.print();
+        // System.out.println(ll.isCycleExist());
+        // ll.removeCycle();
+        // ll.print();
+
+        // ll.addLast(5);        
+        // ll.addLast(4);        
+        // ll.addLast(3);        
+        // ll.addLast(2);        
+        // // ll.addLast(1);
         
+        // ll.print();
+
+        // ll.head = ll.mergeSort(head);
+        // ll.print();
+
+        ll.addLast(1);
+        ll.addLast(2);
+        ll.addLast(3);
+        ll.addLast(4);
+        ll.addLast(5);
+        ll.addLast(6);
+
+        ll.print();
+        ll.zigzag();
+        ll.print();
+
     }
     
 }
