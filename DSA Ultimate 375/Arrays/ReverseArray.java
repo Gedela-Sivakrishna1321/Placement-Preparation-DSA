@@ -7,7 +7,7 @@ public class ReverseArray {
         int left = 0;
         int right = arr.length - 1;
 
-        while(left <= right) {
+        while(left < right) {
             // Standard way to swap 2 variables
             int temp = arr[left];
             arr[left] = arr[right];
@@ -18,9 +18,11 @@ public class ReverseArray {
         }
     }
 
+    // Time complexity - O(n)
+    // Space complexity - O(n)
     public static void recursiveApproach(int arr[], int start, int end) {
         // Base case
-        if(start >= end) {
+        if(start == end) {
             return;
         }
 
@@ -44,8 +46,8 @@ public class ReverseArray {
 
         int arr[] = {1,2,3,4,5,6,7,8,9};
         print(arr);
-        // twoPointerApproach(arr);
-        recursiveApproach(arr, 0, arr.length-1);
+        twoPointerApproach(arr);
+        // recursiveApproach(arr, 0, arr.length-1);
         print(arr);
     }
     
