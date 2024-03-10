@@ -407,6 +407,25 @@ public class LinkedList {
 
     }
 
+    public Node intersectionNode(Node head1, Node head2) {
+        
+        Node temp1 = head1;
+        Node temp2 = head2;
+
+        while(temp2 != null) {
+            temp1 = head1;
+            while(temp1 != null) {
+                if(temp2 == temp1) {
+                    return temp2;
+                }
+                temp1 = temp1.next;
+            }
+            temp2 = temp2.next;
+        }
+
+        return new Node(-1);
+    }
+
 
     public static void main(String[] args) {
       
@@ -459,17 +478,33 @@ public class LinkedList {
         // ll.head = ll.mergeSort(head);
         // ll.print();
 
-        ll.addLast(1);
-        ll.addLast(2);
-        ll.addLast(3);
-        ll.addLast(4);
-        ll.addLast(5);
-        ll.addLast(6);
+        // ll.addLast(1);
+        // ll.addLast(2);
+        // ll.addLast(3);
+        // ll.addLast(4);
+        // ll.addLast(5);
+        // ll.addLast(6);
 
-        ll.print();
-        ll.zigzag();
-        ll.print();
+        // ll.print();
+        // ll.zigzag();
+        // ll.print();
 
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node6 = new Node(6);
+        Node node7 = new Node(7);
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node6;
+        node6.next = node7;
+
+        Node node4 = new Node(4);
+        Node node5 = new Node(5);
+        node4.next = node5;
+        node5.next = node2;
+
+        System.out.println(ll.intersectionNode(node1, node4).data);
     }
     
 }
