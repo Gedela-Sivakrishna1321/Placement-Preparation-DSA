@@ -13,7 +13,7 @@ public class CountSetBits {
     }
 
     public static void main(String[] args) {
-        System.out.println(countOfSetBits(-1));
+        System.out.println(countOfSetBits(19));
 
         /*      Note :- 
          *          The number of bits required to represent a Decimal number in binary is - Log(n) + 1

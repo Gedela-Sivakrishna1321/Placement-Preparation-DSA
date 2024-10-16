@@ -13,6 +13,8 @@ public class DeleteNAfterM {
 
     }
 
+    // Time Complexity - O(n)
+    // Space Complexity - O(1)
     public static void deleteNnodesAfterMnodes(Node head, int M, int N) {
 
         int count = 0;
@@ -22,7 +24,7 @@ public class DeleteNAfterM {
             count++;
             if(count == M) {
                 Node curr = temp;
-                for(int i = 0; i < N; i++) {
+                for(int i = 0; i < N && curr != null; i++) {
                     curr = curr.next;
                 }
                 if(curr == null ||  curr.next == null) {
@@ -74,8 +76,35 @@ public class DeleteNAfterM {
         node9.next = node10;
 
         print(node1);
-        deleteNnodesAfterMnodes(node1, 3, 2);
+        deleteNnodesAfterMnodes(node1, 15, 10);
         print(node1);
+
+        /*      Approach : -
+         *          1) Take a variable 
+         *              temp, count
+         *          2) Loop till the end of the LL
+         *          3) Increment the count after the each iteration
+         *          4) if(we have travelled M nodes) then it's time to skip N nodes..
+         *              if(count == M) {
+         *                  // Variable to skip N nodes
+         *                  curr = temp;
+         *                  for(i = 0 to N && curr != null) 
+         *                      curr = curr.next
+         *                  
+         *                  // Check if curr has become null or what, If so then end the LL
+         *                  if(curr == null || curr.next == null) {
+         *                      temp.next = null;
+         *                      break;
+         *                  }
+         *                  temp.next = curr.next;
+         *                  temp = curr.next;
+         *                  // After skipping N nodes then start again with count from 0
+         *                  count = 0;
+         *                  continue
+         *              }
+         *              5) if it's not time to skip nodes then 
+         *                  temp = temp.next
+         */
 
     }
     

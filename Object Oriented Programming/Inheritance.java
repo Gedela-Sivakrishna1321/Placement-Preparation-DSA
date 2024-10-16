@@ -11,15 +11,31 @@ public class Inheritance {
         // System.out.println(jonny.legs);
 
         // Heirarchial Inheritance
-        Fish fish = new Fish();
-        Bird bird = new Bird();
-        Cow cow = new Cow();
-        fish.eats();
-        fish.swim();
-        bird.eats();
-        bird.fly();
-        cow.eats();
-        cow.walks();
+        // Fish fish = new Fish();
+        // Bird bird = new Bird();
+        // Cow cow = new Cow();
+        // fish.eats();
+        // fish.swim();
+        // bird.eats();
+        // bird.fly();
+        // cow.eats();
+        // cow.walks();
+
+        // LivingBeing l = new Humans();
+        // l.breaths();
+        // l.see();
+        // l.eats();
+        // l.dies();
+
+        // Humans h = (Humans) new LivingBeing();
+        // h.imagine();
+        // h.memory();
+
+        // Vehicle v = new Car();
+        // v.print();
+
+        Vehicle v2 = new Vehicle();
+        v2.print();
     }
 }
 
@@ -100,5 +116,29 @@ class Bird extends Animal {
 class Cow extends Animal {
     void walks() {
         System.out.println("Walks ");
+    }
+}
+
+class Vehicle {
+   protected void print() {
+        System.out.println("Base class ");
+    }
+
+   static {
+        System.out.println("1");
+    }
+
+   static {
+        System.out.println("2");
+    }
+
+  static  {
+        System.out.println("3");
+    }
+}
+
+class Car extends Vehicle {
+  public  void print() {
+        System.out.println("Derived class ");
     }
 }
